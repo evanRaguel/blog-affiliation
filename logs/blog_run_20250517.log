@@ -1,0 +1,64 @@
+2025-05-17 13:18:40,018 - blog_automation - INFO - Début de l'exécution du pipeline d'automatisation
+2025-05-17 13:18:40,018 - blog_automation - INFO - Exécution du scraper...
+2025-05-17 13:19:10,373 - blog_automation - INFO - Scraping terminé: 30 articles RSS, 0 produits
+2025-05-17 13:19:10,374 - blog_automation - INFO - Exécution terminée en 30.36 secondes
+2025-05-17 13:19:19,395 - blog_automation - INFO - Début de l'exécution du pipeline d'automatisation
+2025-05-17 13:19:19,395 - blog_automation - INFO - Génération d'article...
+2025-05-17 13:19:19,396 - blog_automation - WARNING - Échec de la génération d'article
+2025-05-17 13:19:19,397 - blog_automation - INFO - Exécution terminée en 0.00 secondes
+2025-05-17 13:25:04,821 - blog_automation - INFO - Début de l'exécution du pipeline d'automatisation
+2025-05-17 13:25:04,822 - blog_automation - INFO - Construction du site...
+2025-05-17 13:25:05,003 - blog_automation - ERROR - Erreur lors de l'exécution du pipeline: 'page' is undefined
+Traceback (most recent call last):
+  File "c:\Users\claud\Blog d'Affiliation\src\run_all.py", line 90, in run_pipeline
+    build_stats = builder.run(build_all=options['build_all'])
+  File "c:\Users\claud\Blog d'Affiliation\src\builder.py", line 1039, in run
+    self.build_index(all_posts, page_num, posts_per_page)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\claud\Blog d'Affiliation\src\builder.py", line 887, in build_index
+    html = template.render(
+        posts=page_posts,
+    ...<5 lines>...
+        total_pages=total_pages
+    )
+  File "C:\Users\claud\AppData\Roaming\Python\Python313\site-packages\jinja2\environment.py", line 1295, in render
+    self.environment.handle_exception()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\claud\AppData\Roaming\Python\Python313\site-packages\jinja2\environment.py", line 942, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "c:\Users\claud\Blog d'Affiliation\templates\index.html", line 1, in top-level template code
+    {% extends "base.html" %}
+  File "c:\Users\claud\Blog d'Affiliation\templates\base.html", line 13, in top-level template code
+    <meta property="og:url" content="{{ site.base_url }}{{ page.url }}">
+    ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\claud\AppData\Roaming\Python\Python313\site-packages\jinja2\environment.py", line 490, in getattr
+    return getattr(obj, attribute)
+jinja2.exceptions.UndefinedError: 'page' is undefined
+2025-05-17 13:27:26,191 - blog_automation - INFO - Début de l'exécution du pipeline d'automatisation
+2025-05-17 13:27:26,192 - blog_automation - INFO - Construction du site...
+2025-05-17 13:27:26,254 - blog_automation - ERROR - Erreur lors de l'exécution du pipeline: 'page' is undefined
+Traceback (most recent call last):
+  File "c:\Users\claud\Blog d'Affiliation\src\run_all.py", line 90, in run_pipeline
+    build_stats = builder.run(build_all=options['build_all'])
+  File "c:\Users\claud\Blog d'Affiliation\src\builder.py", line 1038, in run
+    self.build_index(all_posts, page_num, posts_per_page)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\claud\Blog d'Affiliation\src\builder.py", line 886, in build_index
+    html = template.render(
+        posts=page_posts,
+    ...<5 lines>...
+        total_pages=total_pages
+    )
+  File "C:\Users\claud\AppData\Roaming\Python\Python313\site-packages\jinja2\environment.py", line 1295, in render
+    self.environment.handle_exception()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\claud\AppData\Roaming\Python\Python313\site-packages\jinja2\environment.py", line 942, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "c:\Users\claud\Blog d'Affiliation\templates\index.html", line 1, in top-level template code
+    {% extends "base.html" %}
+  File "c:\Users\claud\Blog d'Affiliation\templates\base.html", line 13, in top-level template code
+    <meta property="og:url" content="{{ site.base_url }}{{ page.url }}">
+    ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\claud\AppData\Roaming\Python\Python313\site-packages\jinja2\environment.py", line 490, in getattr
+    return getattr(obj, attribute)
+jinja2.exceptions.UndefinedError: 'page' is undefined

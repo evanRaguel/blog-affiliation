@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Derniers articles</h1>
+
+<div class="posts">
+    {% for post in posts %}
+    <article class="post-preview">
+        <h2><a href="{{ site.base_url }}{{ post.url }}">{{ post.title }}</a></h2>
+        <div class="post-meta">
+            <time datetime="{{ post.date }}">{{ post.date }}</time>
+        </div>
+        <div class="post-excerpt">
+            {{ post.excerpt|safe }}
+        </div>
+        <a href="{{ site.base_url }}{{ post.url }}" class="read-more">Lire la suite &rarr;</a>
+    </article>
+    {% endfor %}
+</div>
+
+<div class="pagination">
+    {% if prev_page %}
+    <a href="{{ site.base_url }}/page/{{ prev_page }}.html" class="prev">&larr; Articles plus récents</a>
+    {% endif %}
+    
+    {% if next_page %}
+    <a href="{{ site.base_url }}/page/{{ next_page }}.html" class="next">Articles plus anciens &rarr;</a>
+    {% endif %}
+</div>
+{% endblock %}
