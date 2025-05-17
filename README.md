@@ -10,6 +10,25 @@ Ce projet est un système automatisé de création et publication d'un blog d'af
 4. **Publication sur site statique** : déploie le contenu généré sur GitHub Pages ou Netlify.
 5. **Automatisation complète** : le tout est exécutable via un script unique ou des tâches planifiées.
 
+## Configuration et secrets
+
+### Variables d'environnement locales
+
+Pour utiliser ce projet localement, configurez votre clé API OpenAI comme variable d'environnement :
+
+```powershell
+# Dans PowerShell
+$env:OPENAI_API_KEY = "votre-clé-api-openai"
+```
+
+### GitHub Actions (pour l'automatisation)
+
+1. Allez dans les paramètres de votre dépôt GitHub
+2. Cliquez sur "Secrets and variables" > "Actions"
+3. Ajoutez un nouveau secret nommé `OPENAI_API_KEY` avec votre clé API
+
+Cette configuration est nécessaire pour que les GitHub Actions puissent générer des articles automatiquement.
+
 ## Structure du projet
 
 ```
