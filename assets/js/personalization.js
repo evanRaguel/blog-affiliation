@@ -8,10 +8,10 @@ const Personalization = {
     userProfile: null,
     
     // Règles de personnalisation
-    rules: {},
+    rules: {"home": {"home_tech_banner": {"id": "home_tech_banner", "segment_id": "tech_enthusiasts", "content_type": "banner", "content": "D\u00e9couvrez nos derni\u00e8res innovations tech avec 15% de r\u00e9duction!", "created_at": "2025-05-17T20:27:22.291695"}, "home_mobile_cta": {"id": "home_mobile_cta", "segment_id": "mobile_users", "content_type": "cta_text", "content": "ACHETER EN 1-CLIC SUR MOBILE", "created_at": "2025-05-17T20:27:22.292303"}}, "article": {"article_tech_products": {"id": "article_tech_products", "segment_id": "tech_enthusiasts", "content_type": "recommended_products", "content": [{"name": "UltraBook Pro X7", "price": "899,99\u20ac", "slug": "ultrabook-pro-x7"}, {"name": "\u00c9couteurs NoiseCancel X5", "price": "149,99\u20ac", "slug": "ecouteurs-noisecancel-x5"}, {"name": "Batterie Externe 20000mAh", "price": "49,99\u20ac", "slug": "batterie-externe-20000mah"}], "created_at": "2025-05-17T20:27:22.293061"}, "article_repeating_visitor": {"id": "article_repeating_visitor", "segment_id": "repeat_visitors", "content_type": "email_capture", "content": {"title": "Bienvenue \u00e0 nouveau!", "text": "Abonnez-vous \u00e0 notre newsletter pour recevoir des offres exclusives r\u00e9serv\u00e9es \u00e0 nos lecteurs fid\u00e8les.", "button": "RECEVOIR -20% SUR VOTRE PROCHAIN ACHAT"}, "created_at": "2025-05-17T20:27:22.293795"}, "article_converted_cta": {"id": "article_converted_cta", "segment_id": "converted_users", "content_type": "cta_text", "content": "ACHETER \u00c0 NOUVEAU AVEC 10% DE R\u00c9DUCTION", "created_at": "2025-05-17T20:27:22.294631"}}},
     
     // Segments
-    segments: {},
+    segments: {"tech_enthusiasts": {"id": "tech_enthusiasts", "name": "Passionn\u00e9s de technologie", "criteria": {"interests": ["technologie", "gadgets", "innovation"], "min_visits": 2}, "created_at": "2025-05-17T20:27:22.289865"}, "mobile_users": {"id": "mobile_users", "name": "Utilisateurs mobiles", "criteria": {"device_type": "mobile"}, "created_at": "2025-05-17T20:27:22.290510"}, "repeat_visitors": {"id": "repeat_visitors", "name": "Visiteurs r\u00e9guliers", "criteria": {"min_visits": 3}, "created_at": "2025-05-17T20:27:22.290953"}, "converted_users": {"id": "converted_users", "name": "Utilisateurs ayant d\u00e9j\u00e0 achet\u00e9", "criteria": {"has_conversions": true}, "created_at": "2025-05-17T20:27:22.291297"}},
     
     // Initialiser le module
     init: function() {
@@ -89,8 +89,7 @@ const Personalization = {
         this.userProfile.last_visit = new Date().toISOString();
           // Détecter les intérêts basés sur l'URL actuelle
         const currentPath = window.location.pathname;
-          if (currentPath.includes('/posts/')) {
-            // Extraire la catégorie de l'article
+          if (currentPath.includes('/posts/')) {            // Extraire la catégorie de l'article
             const categoryMatch = currentPath.match(/\/category\/([^/]+)/);
             if (categoryMatch && categoryMatch[1]) {
                 const category = categoryMatch[1].replace(/-/g, ' ');
