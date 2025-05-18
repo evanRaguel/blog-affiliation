@@ -1,0 +1,678 @@
+/* Style CSS optimisé pour les conversions d'affiliation */
+
+/* ====== VARIABLES GLOBALES ====== */
+:root {
+    --color-primary: #2563eb;        /* Bleu confiance */
+    --color-secondary: #4f46e5;      /* Indigo */
+    --color-accent: #f59e0b;         /* Orange convaincant */
+    --color-cta: #dd6b20;            /* Orange foncé */
+    --color-cta-hover: #c2410c;      /* Orange très foncé */
+    --color-success: #22c55e;        /* Vert succès */
+    --color-warning: #f97316;        /* Orange warning */
+    --color-danger: #ef4444;         /* Rouge erreur */
+    --color-info: #3b82f6;           /* Bleu info */
+    --color-background: #ffffff;     /* Fond blanc */
+    --color-text: #172554;           /* Texte bleu foncé */
+    --color-text-light: #64748b;     /* Texte gris */
+    --color-border: #e2e8f0;         /* Bordure gris clair */
+    --color-border-dark: #cbd5e1;    /* Bordure gris foncé */
+    
+    --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.05), 0 1px 3px rgba(0, 0, 0, 0.1);
+    --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1), 0 4px 6px rgba(0, 0, 0, 0.05);
+    --shadow-xl: 0 20px 25px rgba(0, 0, 0, 0.15), 0 10px 10px rgba(0, 0, 0, 0.1);
+    --shadow-inner: inset 0 2px 4px rgba(0, 0, 0, 0.05);
+    
+    --font-primary: 'Nunito', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --font-headings: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    
+    --border-radius-sm: 0.25rem;
+    --border-radius-md: 0.375rem;
+    --border-radius-lg: 0.5rem;
+    --border-radius-xl: 0.75rem;
+    --border-radius-full: 9999px;
+}
+
+/* ====== STYLES GÉNÉRAUX ====== */
+body {
+    font-family: var(--font-primary);
+    line-height: 1.7;
+    color: var(--color-text);
+    font-size: 1.05rem;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-headings);
+    font-weight: 700;
+    margin-top: 1.5em;
+    margin-bottom: 0.75em;
+    color: var(--color-primary);
+}
+
+h1 {
+    font-size: 2.25rem;
+    margin-top: 0;
+    color: var(--color-secondary);
+    line-height: 1.3;
+}
+
+h2 {
+    font-size: 1.8rem;
+    border-bottom: 2px solid var(--color-border);
+    padding-bottom: 0.5rem;
+}
+
+h3 {
+    font-size: 1.5rem;
+}
+
+a {
+    color: var(--color-primary);
+    text-decoration: none;
+    transition: color 0.2s ease, border-bottom 0.2s ease;
+    border-bottom: 1px solid transparent;
+}
+
+a:hover {
+    color: var(--color-secondary);
+    border-bottom: 1px solid var(--color-secondary);
+}
+
+p {
+    margin-bottom: 1.5rem;
+}
+
+ul, ol {
+    margin-bottom: 1.5rem;
+    padding-left: 2rem;
+}
+
+blockquote {
+    border-left: 4px solid var(--color-primary);
+    padding-left: 1rem;
+    margin-left: 0;
+    font-style: italic;
+    color: var(--color-text-light);
+}
+
+code {
+    background-color: #f1f5f9;
+    padding: 0.2rem 0.4rem;
+    border-radius: var(--border-radius-sm);
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    font-size: 0.9em;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    border-radius: var(--border-radius-md);
+    display: block;
+    margin: 2rem auto;
+    box-shadow: var(--shadow-md);
+}
+
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+/* ====== HEADER ET NAVIGATION ====== */
+header {
+    background-color: white;
+    border-bottom: 1px solid var(--color-border);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    padding: 1rem 0;
+    box-shadow: var(--shadow-sm);
+}
+
+.logo {
+    font-family: var(--font-headings);
+    font-weight: 800;
+    font-size: 1.5rem;
+    color: var(--color-primary);
+    border-bottom: none;
+    display: flex;
+    align-items: center;
+}
+
+.logo:hover {
+    color: var(--color-secondary);
+    border-bottom: none;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    margin-left: 1.5rem;
+}
+
+nav ul li a {
+    color: var(--color-text);
+    border-bottom: 2px solid transparent;
+    padding-bottom: 0.25rem;
+    font-weight: 600;
+}
+
+nav ul li a:hover {
+    color: var(--color-primary);
+    border-bottom-color: var(--color-primary);
+}
+
+/* ====== COMPOSANTS DE CONVERSION ====== */
+/* Boîte de résumé */
+.post-summary {
+    background-color: #f8fafc;
+    border: 1px solid var(--color-border);
+    border-radius: var(--border-radius-lg);
+    padding: 1.5rem;
+    margin: 2rem 0;
+    box-shadow: var(--shadow-md);
+    position: relative;
+}
+
+.post-summary h3 {
+    margin-top: 0;
+    color: var(--color-secondary);
+    display: flex;
+    align-items: center;
+    font-size: 1.3rem;
+}
+
+.post-summary h3:before {
+    content: "🔎";
+    margin-right: 0.5rem;
+}
+
+.summary-points {
+    list-style-type: none;
+    margin-left: 0;
+    padding-left: 0;
+}
+
+.summary-points li {
+    padding: 0.5rem 0 0.5rem 2rem;
+    position: relative;
+    font-size: 1.05rem;
+}
+
+.summary-points li:before {
+    content: "✓";
+    color: var(--color-success);
+    font-weight: bold;
+    position: absolute;
+    left: 0;
+    top: 0.5rem;
+}
+
+/* Boutons CTA */
+.cta-button, .cta-button-large {
+    display: inline-block;
+    background-color: var(--color-cta);
+    color: white;
+    text-decoration: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: var(--border-radius-md);
+    font-weight: 700;
+    text-align: center;
+    transition: all 0.3s ease;
+    box-shadow: var(--shadow-md);
+    border: none;
+    margin: 1rem 0;
+    cursor: pointer;
+    line-height: 1.2;
+}
+
+.cta-button:hover, .cta-button-large:hover {
+    background-color: var(--color-cta-hover);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+    color: white;
+    border-bottom: none;
+}
+
+.cta-button-large {
+    padding: 1rem 2rem;
+    font-size: 1.2rem;
+    display: block;
+    width: 100%;
+    max-width: 500px;
+    margin: 1.5rem auto;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.cta-primary, .cta-final {
+    text-align: center;
+}
+
+/* Prix barré */
+.price-tag {
+    font-size: 1.2rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 1rem 0;
+}
+
+.old-price {
+    text-decoration: line-through;
+    color: var(--color-text-light);
+    margin-right: 0.75rem;
+}
+
+.new-price {
+    color: var(--color-danger);
+    font-size: 1.4rem;
+}
+
+.discount-percent {
+    background-color: var(--color-danger);
+    color: white;
+    padding: 0.25rem 0.5rem;
+    border-radius: var(--border-radius-full);
+    font-size: 0.9rem;
+    margin-left: 0.75rem;
+}
+
+/* Badges */
+.badge {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    border-radius: var(--border-radius-full);
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-left: 0.5rem;
+}
+
+.badge-success {
+    background-color: #dcfce7;
+    color: #166534;
+}
+
+.badge-primary {
+    background-color: #e0e7ff;
+    color: #3730a3;
+}
+
+.badge-warning {
+    background-color: #fef3c7;
+    color: #92400e;
+}
+
+.badge-discount {
+    background-color: #fee2e2;
+    color: #b91c1c;
+}
+
+/* Boîte produit */
+.product-box {
+    border: 1px solid var(--color-border);
+    border-radius: var(--border-radius-lg);
+    padding: 1.5rem;
+    margin: 2rem 0;
+    background-color: white;
+    box-shadow: var(--shadow-md);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product-box:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-xl);
+}
+
+.product-box h3 {
+    margin-top: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.product-title {
+    display: flex;
+    align-items: center;
+}
+
+.product-box .rating {
+    margin: 0.5rem 0;
+    color: var(--color-warning);
+}
+
+.product-box .price {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--color-danger);
+    margin: 0.5rem 0;
+}
+
+.product-box .description {
+    margin: 1rem 0;
+    font-size: 0.95rem;
+}
+
+.product-box .cta-button {
+    width: 100%;
+}
+
+/* Produit recommandé */
+.recommended-product {
+    border: 2px solid var(--color-primary);
+    border-radius: var(--border-radius-lg);
+    padding: 1.5rem;
+    margin: 2.5rem 0;
+    position: relative;
+    background-color: #f8fafc;
+    box-shadow: var(--shadow-lg);
+}
+
+.recommended-product:before {
+    content: "TOP CHOIX";
+    position: absolute;
+    top: -0.75rem;
+    left: 1.5rem;
+    background-color: var(--color-primary);
+    color: white;
+    padding: 0.25rem 0.75rem;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    border-radius: var(--border-radius-sm);
+}
+
+/* Tableau comparatif */
+.comparison-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 2rem 0;
+    background-color: white;
+    box-shadow: var(--shadow-md);
+    border-radius: var(--border-radius-lg);
+    overflow: hidden;
+}
+
+.comparison-table th {
+    background-color: var(--color-primary);
+    color: white;
+    padding: 1rem;
+    text-align: left;
+    font-weight: 600;
+}
+
+.comparison-table td {
+    padding: 1rem;
+    border-top: 1px solid var(--color-border);
+}
+
+.comparison-table tr:nth-child(even) {
+    background-color: #f8fafc;
+}
+
+.comparison-table tr:hover {
+    background-color: #f1f5f9;
+}
+
+.comparison-table td:first-child {
+    font-weight: 600;
+}
+
+/* Conclusion */
+.conclusion-cta {
+    background-color: #f1f5f9;
+    border-left: 5px solid var(--color-primary);
+    padding: 1.5rem;
+    margin: 2.5rem 0;
+    border-radius: 0 var(--border-radius-lg) var(--border-radius-lg) 0;
+    box-shadow: var(--shadow-md);
+}
+
+.conclusion-cta h3 {
+    margin-top: 0;
+    color: var(--color-primary);
+    font-size: 1.4rem;
+}
+
+/* FAQ Section */
+.faq-section {
+    margin: 3rem 0;
+    padding: 1.5rem;
+    background-color: #f8fafc;
+    border-radius: var(--border-radius-lg);
+    box-shadow: var(--shadow-md);
+}
+
+.faq-section h3 {
+    margin-top: 0;
+    color: var(--color-secondary);
+    font-size: 1.5rem;
+}
+
+.faq-item {
+    margin-bottom: 1.5rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--color-border);
+}
+
+.faq-item:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+    margin-bottom: 0;
+}
+
+.faq-item h4 {
+    color: var(--color-primary);
+    margin-bottom: 0.75rem;
+    font-size: 1.2rem;
+    margin-top: 0;
+}
+
+/* Avis d'affiliation */
+.affiliate-disclosure {
+    font-size: 0.85rem;
+    color: var(--color-text-light);
+    margin-top: 2rem;
+    border-top: 1px solid var(--color-border);
+    padding-top: 1.5rem;
+    text-align: center;
+}
+
+/* Capture email */
+.email-capture {
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+    color: white;
+    padding: 2rem;
+    border-radius: var(--border-radius-lg);
+    margin: 3rem 0;
+    box-shadow: var(--shadow-lg);
+}
+
+.email-capture h3 {
+    color: white;
+    margin-top: 0;
+    font-size: 1.5rem;
+}
+
+.email-capture p {
+    margin-bottom: 1.5rem;
+    font-size: 1.1rem;
+}
+
+.email-form {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.email-input {
+    flex: 1;
+    padding: 0.75rem;
+    border: none;
+    border-radius: var(--border-radius-md);
+    font-size: 1rem;
+}
+
+.email-submit {
+    background-color: var(--color-accent);
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: var(--border-radius-md);
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.email-submit:hover {
+    background-color: var(--color-cta-hover);
+}
+
+/* ====== ANIMATIONS ET EFFETS ====== */
+/* Animation pour les liens d'affiliation */
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(221, 107, 32, 0.7);
+    }
+    70% {
+        box-shadow: 0 0 0 10px rgba(221, 107, 32, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(221, 107, 32, 0);
+    }
+}
+
+.affiliate-link.highlight {
+    position: relative;
+    font-weight: 700;
+    color: var(--color-cta);
+    border-bottom: 2px dashed var(--color-cta);
+    padding: 0 0.25rem;
+    transition: color 0.3s ease, background-color 0.3s ease, border-bottom 0.3s ease;
+}
+
+.affiliate-link.highlight:hover {
+    color: white;
+    background-color: var(--color-cta);
+    border-bottom: 2px solid var(--color-cta);
+    border-radius: var(--border-radius-sm);
+    animation: pulse 1.5s infinite;
+}
+
+/* Indicateur de lecture (barre de progression) */
+.progress-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: transparent;
+    z-index: 1000;
+}
+
+.progress-bar {
+    height: 4px;
+    background: var(--color-primary);
+    width: 0%;
+}
+
+/* ====== RESPONSIVE ====== */
+@media (max-width: 768px) {
+    body {
+        font-size: 1rem;
+    }
+    
+    h1 {
+        font-size: 1.8rem;
+    }
+    
+    h2 {
+        font-size: 1.5rem;
+    }
+    
+    h3 {
+        font-size: 1.3rem;
+    }
+    
+    .container {
+        padding: 0 1rem;
+    }
+    
+    header .container {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    nav ul {
+        margin-top: 1rem;
+        flex-wrap: wrap;
+    }
+    
+    nav ul li {
+        margin-left: 0;
+        margin-right: 1rem;
+        margin-bottom: 0.5rem;
+    }
+    
+    .email-form {
+        flex-direction: column;
+    }
+    
+    .email-input, .email-submit {
+        width: 100%;
+    }
+    
+    .post-summary, .conclusion-cta, .faq-section, .product-box, .email-capture {
+        padding: 1rem;
+    }
+    
+    .comparison-table th, .comparison-table td {
+        padding: 0.5rem;
+        font-size: 0.9rem;
+    }
+}
+
+/* ====== DARK MODE ====== */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --color-background: #0f172a;
+        --color-text: #e2e8f0;
+        --color-text-light: #94a3b8;
+        --color-border: #1e293b;
+        --color-border-dark: #334155;
+    }
+    
+    body {
+        background-color: var(--color-background);
+    }
+    
+    header, .product-box {
+        background-color: #1e293b;
+    }
+    
+    .post-summary, .conclusion-cta, .faq-section {
+        background-color: #1e293b;
+    }
+    
+    .comparison-table {
+        background-color: #1e293b;
+    }
+    
+    .comparison-table tr:nth-child(even) {
+        background-color: #334155;
+    }
+    
+    .comparison-table tr:hover {
+        background-color: #475569;
+    }
+    
+    code {
+        background-color: #334155;
+    }
+}

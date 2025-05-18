@@ -1,11 +1,30 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta http-equiv="refresh" content="0;url=https://www.amazon.fr/s?k=exploregear+backoffice&tag=evanraguel21-21">
-    <title>Redirection vers exploregear backoffice</title>
-    <script>window.location.href = "https://www.amazon.fr/s?k=exploregear+backoffice&tag=evanraguel21-21";</script>
+    <meta charset="UTF-8">
+    <title>Redirection vers ExploreGear BackOffice</title>
+    <meta http-equiv="refresh" content="0; url=https://www.amazon.fr/s?k=ExploreGear+BackOffice&tag=evanraguel21-21">
+    <script>
+        // Détection plus précise pour JavaScript activé
+        function getBrowserLanguage() {
+            return navigator.language || navigator.userLanguage || 'fr-FR';
+        }
+        
+        var lang = getBrowserLanguage().substring(0, 2).toLowerCase();
+        var urls = {
+            'fr': 'https://www.amazon.fr/s?k=ExploreGear+BackOffice&tag=evanraguel21-21',
+            'es': 'https://www.amazon.es/s?k=ExploreGear+BackOffice&tag=evanraguel201-21',
+            'de': 'https://www.amazon.de/s?k=ExploreGear+BackOffice&tag=evanraguel205-21',
+            'en': 'https://www.amazon.co.uk/s?k=ExploreGear+BackOffice&tag=evanraguel208-21',
+            'it': 'https://www.amazon.it/s?k=ExploreGear+BackOffice&tag=evanraguel20f-21'
+        };
+        
+        // Rediriger vers l'URL spécifique à la langue
+        window.location.href = urls[lang] || 'https://www.amazon.fr/s?k=ExploreGear+BackOffice&tag=evanraguel21-21';
+    </script>
 </head>
 <body>
-    <p>Redirection vers <a href="https://www.amazon.fr/s?k=exploregear+backoffice&tag=evanraguel21-21">exploregear backoffice</a>...</p>
+    <p>Redirection vers le produit...</p>
+    <p><a href="https://www.amazon.fr/s?k=ExploreGear+BackOffice&tag=evanraguel21-21">Cliquez ici si vous n'êtes pas redirigé automatiquement</a></p>
 </body>
 </html>

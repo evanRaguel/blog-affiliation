@@ -1,11 +1,30 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta http-equiv="refresh" content="0;url=https://www.booking.com/index.html?aid=your-booking-ref">
-    <title>Redirection vers techvoyager pro</title>
-    <script>window.location.href = "https://www.booking.com/index.html?aid=your-booking-ref";</script>
+    <meta charset="UTF-8">
+    <title>Redirection vers TechVoyager Pro</title>
+    <meta http-equiv="refresh" content="0; url=https://www.amazon.fr/s?k=TechVoyager+Pro&tag=evanraguel21-21">
+    <script>
+        // Détection plus précise pour JavaScript activé
+        function getBrowserLanguage() {
+            return navigator.language || navigator.userLanguage || 'fr-FR';
+        }
+        
+        var lang = getBrowserLanguage().substring(0, 2).toLowerCase();
+        var urls = {
+            'fr': 'https://www.amazon.fr/s?k=TechVoyager+Pro&tag=evanraguel21-21',
+            'es': 'https://www.amazon.es/s?k=TechVoyager+Pro&tag=evanraguel201-21',
+            'de': 'https://www.amazon.de/s?k=TechVoyager+Pro&tag=evanraguel205-21',
+            'en': 'https://www.amazon.co.uk/s?k=TechVoyager+Pro&tag=evanraguel208-21',
+            'it': 'https://www.amazon.it/s?k=TechVoyager+Pro&tag=evanraguel20f-21'
+        };
+        
+        // Rediriger vers l'URL spécifique à la langue
+        window.location.href = urls[lang] || 'https://www.amazon.fr/s?k=TechVoyager+Pro&tag=evanraguel21-21';
+    </script>
 </head>
 <body>
-    <p>Redirection vers <a href="https://www.booking.com/index.html?aid=your-booking-ref">techvoyager pro</a>...</p>
+    <p>Redirection vers le produit...</p>
+    <p><a href="https://www.amazon.fr/s?k=TechVoyager+Pro&tag=evanraguel21-21">Cliquez ici si vous n'êtes pas redirigé automatiquement</a></p>
 </body>
 </html>
